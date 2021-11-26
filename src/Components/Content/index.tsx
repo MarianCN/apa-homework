@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
-import { GamesPage } from "../GamesPage";
+import { GamesPage } from "../Pages/GamesPage";
 import { Page } from "../Main";
-import { StatsPage } from "../StatsPage";
+import { StatsPage } from "../Pages/StatsPage";
+import { AboutUsPage } from "../Pages/AboutUsPage";
 
 type Props = { page: Page };
 
@@ -11,6 +12,8 @@ const renderPage = (page: Page): ReactNode => {
       return <GamesPage />;
     case "stats":
       return <StatsPage />;
+    case "aboutus":
+      return <AboutUsPage />;
   }
 };
 
