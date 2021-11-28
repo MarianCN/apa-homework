@@ -1,9 +1,9 @@
-import { Page } from "../Main";
+import { PageType } from "../Main";
 import { Button } from "./Button";
 
 type Props = {
-  page: Page;
-  setPage: (s: Page) => void;
+  page: PageType;
+  setPage: (s: PageType) => void;
 };
 
 export const LeftSidebar = ({ page, setPage }: Props) => {
@@ -15,21 +15,21 @@ export const LeftSidebar = ({ page, setPage }: Props) => {
         title="JOCURI"
         isActive={page === "games"}
         onClick={() => {
-          setPage("games");
+          setPage(PageType.games);
         }}
       />
       <Button
         title="STATISTICI"
         isActive={page === "stats"}
         onClick={() => {
-          setPage("stats");
+          setPage(PageType.stats);
         }}
       />
       <Button
         title="DESPRE NOI"
         isActive={page === "aboutus"}
         onClick={() => {
-          setPage("aboutus");
+          setPage(PageType.aboutus);
         }}
       />
     </div>
