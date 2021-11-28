@@ -1,16 +1,21 @@
 import { useState } from "react";
-import { Content } from "../Content";
+import { Page } from "../Page";
 import { LeftSidebar } from "../LeftSidebar";
 
-export type Page = "games" | "stats" | "aboutus";
+export enum PageType {
+  games = "games",
+  stats = "stats",
+  aboutus = "aboutus",
+  game = "game",
+}
 
 export const Main = () => {
-  const [page, setPage] = useState<Page>("games");
+  const [page, setPage] = useState<PageType>(PageType.games);
 
   return (
     <>
-      <LeftSidebar page={page} setPage={setPage} />
-      <Content page={page} />
+      {page !== PageType.game && <LeftSidebar page={page} setPage={setPage} />}
+      <Page page={page} setPage={setPage} />
     </>
   );
 };
