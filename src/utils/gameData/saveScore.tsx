@@ -21,13 +21,16 @@ export const saveGameHistory = (
   } else {
     const data = getFromLocalStorage("g-data") as GamesData;
 
-    if (data.games[game]) {
+    if (data.games) {
       const newData = {
+        ...data,
         games: {
           ...data.games,
-
           [game]: {
-            history: [...data.games[game].history, dataToSave],
+            history: data.games[game]
+              ? // @ts-expect-error check later
+                [...data.games[game].history, dataToSave]
+              : [dataToSave],
           },
         },
       };
