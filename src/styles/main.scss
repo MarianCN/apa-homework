@@ -61,6 +61,8 @@ body {
     overflow-x: hidden;
     flex: 1;
     background-color: #e8edf1;
+    display: flex;
+    justify-content: center;
 
     .page {
       display: flex;
@@ -134,11 +136,43 @@ body {
           }
         }
       }
+      &-game {
+        flex-grow: 1;
+        .gameScreen {
+          flex-grow: 1;
+          width: 100%;
+          position: relative;
+
+          .score {
+
+          }
+
+          h1 {
+            text-align: center;
+          }
+        }
+      }
       &-stats {
       }
       &-aboutus {
       }
     }
+  }
+}
+
+.number {
+  width: 50px;
+  height: 50px;
+  background-color: #dbdbdb;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &.clicked {
+    display: none;
   }
 }
 
