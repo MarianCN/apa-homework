@@ -81,23 +81,31 @@ export const Colors = () => {
       <div className="mainBlock">
         {colorsGameState.step !== colorsGameState.questions.length ? (
           <div>
-            <h1>{colorsGameState.questions[colorsGameState.step].question}</h1>
+            <h1>
+              {
+                // @ts-expect-error need to fix this
+                colorsGameState.questions[colorsGameState.step].question
+              }
+            </h1>
             <div>
-              {colorsGameState.questions[colorsGameState.step].answers.map(
-                (answer, index) => {
-                  return (
-                    <span
-                      className="answer"
-                      key={index}
-                      style={{ color: answer.color }}
-                      data-is-right={answer.isRight}
-                      onClick={answerClickHandler}
-                    >
-                      {answer.answer}
-                    </span>
-                  );
-                }
-              )}
+              {
+                // @ts-expect-error need to fix this
+                colorsGameState.questions[colorsGameState.step].answers.map(
+                  (answer, index) => {
+                    return (
+                      <span
+                        className="answer"
+                        key={index}
+                        style={{ color: answer.color }}
+                        data-is-right={answer.isRight}
+                        onClick={answerClickHandler}
+                      >
+                        {answer.answer}
+                      </span>
+                    );
+                  }
+                )
+              }
             </div>
           </div>
         ) : (

@@ -27,10 +27,7 @@ export const saveGameHistory = (
         games: {
           ...data.games,
           [game]: {
-            history: data.games[game]
-              ? // @ts-expect-error check later
-                [...data.games[game].history, dataToSave]
-              : [dataToSave],
+            history: [...(data.games[game]?.history ?? []), dataToSave],
           },
         },
       };
