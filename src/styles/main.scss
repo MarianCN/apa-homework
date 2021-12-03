@@ -61,6 +61,8 @@ body {
     overflow-x: hidden;
     flex: 1;
     background-color: #e8edf1;
+    display: flex;
+    justify-content: center;
 
     .page {
       display: flex;
@@ -134,11 +136,66 @@ body {
           }
         }
       }
+      &-game {
+        flex-grow: 1;
+        .gameScreen {
+          flex-grow: 1;
+          width: 100%;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+
+          h1 {
+            text-align: center;
+          }
+
+          .mainBlock {
+            margin-top: auto;
+            margin-bottom: auto;
+            align-self: center;
+          }
+        }
+      }
       &-stats {
       }
       &-aboutus {
       }
     }
+  }
+}
+
+.answer {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0 20px;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.number {
+  width: 50px;
+  height: 50px;
+  background-color: #dbdbdb;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+
+  transition: all 0.2s ease;
+
+  &.clicked {
+    display: none;
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }
 

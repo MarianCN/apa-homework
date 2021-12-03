@@ -25,6 +25,7 @@ export const GamePage = ({ game, setPage }: Props) => {
       {renderGame()}
 
       <button
+        className="exit"
         onClick={() => {
           setPage(PageType.games);
         }}
