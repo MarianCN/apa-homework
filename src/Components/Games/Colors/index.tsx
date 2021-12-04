@@ -1,5 +1,5 @@
 import { MouseEventHandler, useEffect, useState } from "react";
-import { saveGameHistory } from "../../../../utils/gameData/saveScore";
+import { saveGameHistory } from "../../../utils/gameData/saveScore";
 import { GameType } from "../types";
 
 export const Colors = () => {
@@ -44,7 +44,7 @@ export const Colors = () => {
   });
 
   useEffect(() => {
-    if (colorsGameState.step == colorsGameState.questions.length) {
+    if (colorsGameState.step === colorsGameState.questions.length) {
       saveGameHistory(GameType.numbers, {
         rightAnswers: colorsGameState.rightAnswers,
         wrongAnswers: colorsGameState.wrongAnswers,
@@ -74,7 +74,7 @@ export const Colors = () => {
   };
 
   return (
-    <div className="gameScreen">
+    <div className="gameScreen gameScreen-colors">
       <h1>
         Colors game <span title="Informații despre joc">-i-</span>
       </h1>

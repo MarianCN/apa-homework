@@ -1,4 +1,4 @@
-import { GameType } from "../../Components/Page/GamePage/types";
+import { GameType } from "../../Components/Games/types";
 
 type GameNumbersData = {
   history: {

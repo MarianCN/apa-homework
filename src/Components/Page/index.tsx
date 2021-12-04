@@ -4,7 +4,7 @@ import { PageType } from "../Main";
 import { StatsPage } from "./StatsPage";
 import { AboutUsPage } from "./AboutUsPage";
 import { GamePage } from "./GamePage";
-import { GameType } from "./GamePage/types";
+import { GameType } from "../Games/types";
 
 type Props = { page: PageType; setPage: (s: PageType) => void };
 

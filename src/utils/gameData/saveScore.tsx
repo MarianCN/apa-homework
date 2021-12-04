@@ -1,4 +1,4 @@
-import { GameType } from "../../Components/Page/GamePage/types";
+import { GameType } from "../../Components/Games/types";
 import { getFromLocalStorage, saveToLocalStorage } from "./localStorage";
 import { GamesData } from "./types";
 
