@@ -75,9 +75,6 @@ export const Colors = () => {
 
   return (
     <div className="gameScreen gameScreen-colors">
-      <h1>
-        Colors game <span title="Informații despre joc">-i-</span>
-      </h1>
       <div className="mainBlock">
         {colorsGameState.step !== colorsGameState.questions.length ? (
           <div>
