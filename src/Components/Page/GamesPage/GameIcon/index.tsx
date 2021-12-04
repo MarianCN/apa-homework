@@ -1,5 +1,6 @@
+import { GameType } from "../../../Games/types";
 import { PageType } from "../../../Main";
-import { GameIconData, GameType } from "../../GamePage/types";
+import { GameIconData } from "../types";
 
 type Props = {
   type: GameType;

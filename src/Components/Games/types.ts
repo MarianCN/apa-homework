@@ -3,8 +3,3 @@ export enum GameType {
   numbers = "numbers",
   colors = "colors",
 }
-
-export type GameIconData = {
-  title: string;
-  icon: string;
-};

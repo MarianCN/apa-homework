@@ -1,8 +1,8 @@
-import { saveGameHistory } from "../../../../utils/gameData/saveScore";
+import { saveGameHistory } from "../../../utils/gameData/saveScore";
 
 import { MouseEventHandler } from "react";
-import { GameType } from "../types";
 import { useState } from "react";
+import { GameType } from "../types";
 
 let clickCounter = 0;
 let startTime: number;
@@ -10,11 +10,11 @@ let startTime: number;
 export const Numbers = () => {
   const [_currentNumber, setCurrentNumber] = useState(1);
 
-  const [a, setA] = useState([
+  const [numbers, setNumbers] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ]);
 
-  const numbers = a.map((item) => ({
+  const numbersData = numbers.map((item) => ({
     value: item,
     top: Math.round(Math.random() * 90) + "vh",
     left: Math.round(Math.random() * 90) + "vw",
@@ -30,7 +30,7 @@ export const Numbers = () => {
     if (_currentNumber === 1) {
       startTime = Date.now();
     }
-    if (_currentNumber === numbers.length) {
+    if (_currentNumber === numbersData.length) {
       const diffMinutes = Math.ceil(Date.now() - startTime / (1000 * 60));
 
       saveGameHistory(GameType.numbers, { diffMinutes, clickCounter });
@@ -41,17 +41,17 @@ export const Numbers = () => {
     if (_currentNumber === Number(target.getAttribute("data-value"))) {
       setCurrentNumber(_currentNumber + 1);
 
-      setA(a.filter((item) => item !== _currentNumber));
+      setNumbers(numbers.filter((item) => item !== _currentNumber));
     }
   };
 
   return (
-    <div className="gameScreen">
+    <div className="gameScreen gameScreen-numbers">
       <h1>
         {_currentNumber} Numbers game{" "}
         <span title="Informații despre joc">-i-</span>
       </h1>
-      {numbers.map((number, i) => {
+      {numbersData.map((number, i) => {
         return (
           <span
             key={i}
