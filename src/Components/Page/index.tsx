@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactElement, useState } from "react";
 import { GamesPage } from "./GamesPage";
 import { PageType } from "../Main";
 import { StatsPage } from "./StatsPage";
@@ -11,15 +11,15 @@ type Props = { page: PageType; setPage: (s: PageType) => void };
 export const Page = ({ page, setPage }: Props) => {
   const [game, setGame] = useState<GameType>(GameType.colors);
 
-  const renderPage = (): ReactNode => {
+  const renderPage = (): ReactElement => {
     switch (page) {
-      case "games":
+      case PageType.games:
         return <GamesPage setGame={setGame} setPage={setPage} />;
-      case "stats":
+      case PageType.stats:
         return <StatsPage />;
-      case "aboutus":
+      case PageType.aboutus:
         return <AboutUsPage />;
-      case "game":
+      case PageType.game:
         return <GamePage game={game} setPage={setPage} />;
     }
   };
