@@ -13,19 +13,19 @@ export const GameIcon = ({ type, setGame, setPage }: Props) => {
     switch (type) {
       case GameType.squares:
         return {
-          title: "Game 1",
+          title: "Squares",
           icon: "images/square.png",
         };
 
       case GameType.colors:
         return {
-          title: "Game 2",
+          title: "Colors",
           icon: "images/colour.png",
         };
 
       case GameType.numbers:
         return {
-          title: "Game 3",
+          title: "Numbers",
           icon: "images/numbers.png",
         };
     }
