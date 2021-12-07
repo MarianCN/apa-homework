@@ -44,8 +44,9 @@ export const Colors = () => {
   });
 
   useEffect(() => {
+    console.log(colorsGameState.step === colorsGameState.questions.length)
     if (colorsGameState.step === colorsGameState.questions.length) {
-      saveGameHistory(GameType.numbers, {
+      saveGameHistory(GameType.colors, {
         rightAnswers: colorsGameState.rightAnswers,
         wrongAnswers: colorsGameState.wrongAnswers,
       });
