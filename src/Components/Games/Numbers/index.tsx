@@ -7,7 +7,7 @@ import { Timer } from "../../Timer";
 import { useEffect } from "react";
 import { getTime } from "../../../utils/timer";
 
-const totalNumbers = 20;
+const totalNumbers = 5;
 
 let clickCounter = 0;
 let startTime = 0;
