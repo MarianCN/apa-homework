@@ -270,9 +270,8 @@ body {
 
           .game-block {
             display: flex;
-            flex-direction: column;
+            width: 100%;
 
-            width: clamp(200px, 350px, 25vw);
             margin: 20px;
             padding: 20px;
 
@@ -290,13 +289,9 @@ body {
             .history-block {
               text-align: left;
               padding: 20px 0;
-
-              border-bottom: 1px solid #00000010;
             }
           }
         }
-      }
-      &-aboutus {
       }
     }
   }

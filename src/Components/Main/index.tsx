@@ -5,7 +5,6 @@ import { LeftSidebar } from "../LeftSidebar";
 export enum PageType {
   games = "games",
   stats = "stats",
-  aboutus = "aboutus",
   game = "game",
 }
 

@@ -14,7 +14,6 @@ export const GamesPage = ({ setGame, setPage }: Props) => {
 
       <div className="games-group">
         <GameIcon type={GameType.numbers} setGame={setGame} setPage={setPage} />
-        <GameIcon type={GameType.squares} setGame={setGame} setPage={setPage} />
         <GameIcon type={GameType.colors} setGame={setGame} setPage={setPage} />
       </div>
     </div>

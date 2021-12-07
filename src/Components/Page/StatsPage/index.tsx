@@ -24,21 +24,6 @@ export const StatsPage = () => {
                     </div>
                 </div>
                 <div className={'game-block'}>
-                    <h3 className={'game-title'}>Squares</h3>
-                    <div className={'history-block'}>
-                        aici o sa fie text din local storage
-                    </div>
-                    <div className={'history-block'}>
-                        aici o sa fie text din local storage
-                    </div>
-                    <div className={'history-block'}>
-                        aici o sa fie text din local storage
-                    </div>
-                    <div className={'history-block'}>
-                        aici o sa fie text din local storage
-                    </div>
-                </div>
-                <div className={'game-block'}>
                     <h3 className={'game-title'}>Colors</h3>
                     <div className={'history-block'}>
                         aici o sa fie text din local storage

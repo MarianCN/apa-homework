@@ -17,6 +17,5 @@ export type GamesData = {
   games: {
     [GameType.colors]?: GameColorsData;
     [GameType.numbers]?: GameNumbersData;
-    [GameType.squares]?: GameSquaresData;
   };
 };

@@ -26,10 +26,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0516a45a-0e62-43e8-88a6-fc66a8b25d0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/Games/Colors/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Games/Colors/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Games/Squares/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Games/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Games/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LeftSidebar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LeftSidebar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Main/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Main/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Page/AboutUsPage/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Page/GamePage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Page/GamePage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Page/GamesPage/GameIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Page/GamesPage/GameIcon/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Page/GamesPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Page/GamesPage/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Page/StatsPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Page/StatsPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Page/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Page/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/gameData/saveScore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/gameData/saveScore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/gameData/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/gameData/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +89,7 @@
       <workItem from="1638286886335" duration="10446000" />
       <workItem from="1638814489562" duration="1871000" />
       <workItem from="1638893805103" duration="77000" />
-      <workItem from="1638893905097" duration="1869000" />
+      <workItem from="1638893905097" duration="3241000" />
     </task>
     <servers />
   </component>
@@ -116,6 +126,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2262" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1638900655126">
+      <screen x="1920" y="-186" width="2560" height="1410" />
+    </state>
+    <state x="2262" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/1920.-186.2560.1410@1920.-186.2560.1410" timestamp="1638900655126" />
     <state x="1998" y="24" key="MergeDialog" timestamp="1638815163724">
       <screen x="1920" y="-186" width="2560" height="1410" />
     </state>
@@ -132,11 +146,11 @@
       <screen x="1920" y="-186" width="2560" height="1410" />
     </state>
     <state x="2012" y="-94" width="1096" height="1226" key="ShowDiffWithBranchDialog/0.0.1920.1050/1920.-186.2560.1410@1920.-186.2560.1410" timestamp="1638815176865" />
-    <state x="2267" y="255" width="585" height="534" key="find.popup" timestamp="1638815649389">
+    <state x="2267" y="255" width="585" height="534" key="find.popup" timestamp="1638901108438">
       <screen x="1920" y="-186" width="2560" height="1410" />
     </state>
     <state x="1713" y="441" width="585" height="534" key="find.popup/0.0.1366.738/1366.0.2560.1410@1366.0.2560.1410" timestamp="1638298695901" />
-    <state x="2267" y="255" width="585" height="534" key="find.popup/0.0.1920.1050/1920.-186.2560.1410@1920.-186.2560.1410" timestamp="1638815649389" />
+    <state x="2267" y="255" width="585" height="534" key="find.popup/0.0.1920.1050/1920.-186.2560.1410@1920.-186.2560.1410" timestamp="1638901108438" />
     <state x="2223" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1638898006792">
       <screen x="1920" y="-186" width="2560" height="1410" />
     </state>

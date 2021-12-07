@@ -8,7 +8,7 @@ export const saveGameHistory = (
 ) => {
   const data = getFromLocalStorage("g-data") as GamesData;
 
-  if (!data) {
+  if (!Object.keys(data).length) {
     const newData = {
       games: {
         [game]: {
@@ -16,7 +16,6 @@ export const saveGameHistory = (
         },
       },
     };
-    console.log(newData)
 
     saveToLocalStorage("g-data", newData);
   } else {
@@ -33,7 +32,6 @@ export const saveGameHistory = (
         },
       };
 
-      console.log(newData)
       saveToLocalStorage("g-data", newData);
     }
   }

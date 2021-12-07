@@ -11,12 +11,6 @@ type Props = {
 export const GameIcon = ({ type, setGame, setPage }: Props) => {
   const getGameData = (): GameIconData => {
     switch (type) {
-      case GameType.squares:
-        return {
-          title: "Squares",
-          icon: "images/square.png",
-        };
-
       case GameType.colors:
         return {
           title: "Colors",
