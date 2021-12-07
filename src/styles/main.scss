@@ -260,6 +260,41 @@ body {
         }
       }
       &-stats {
+        flex: 1;
+        .statistics {
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+
+          width: 100%;
+
+          .game-block {
+            display: flex;
+            flex-direction: column;
+
+            width: clamp(200px, 350px, 25vw);
+            margin: 20px;
+            padding: 20px;
+
+            box-shadow: 0 10px 10px 0 #00000010;
+            background-color: white;
+
+            transition: all 0.2s ease;
+
+            .game-title {
+              font-size: 25px;
+              font-weight: 100;
+              text-align: center;
+            }
+
+            .history-block {
+              text-align: left;
+              padding: 20px 0;
+
+              border-bottom: 1px solid #00000010;
+            }
+          }
+        }
       }
       &-aboutus {
       }

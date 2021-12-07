@@ -16,6 +16,7 @@ export const saveGameHistory = (
         },
       },
     };
+    console.log(newData)
 
     saveToLocalStorage("g-data", newData);
   } else {
@@ -32,6 +33,7 @@ export const saveGameHistory = (
         },
       };
 
+      console.log(newData)
       saveToLocalStorage("g-data", newData);
     }
   }
