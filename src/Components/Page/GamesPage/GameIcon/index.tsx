@@ -1,6 +1,7 @@
+import { getGameInfo } from "../../../../utils/gameData";
+import { GameImage } from "../../../GameImage";
 import { GameType } from "../../../Games/types";
 import { PageType } from "../../../Main";
-import { GameIconData } from "../types";
 
 type Props = {
   type: GameType;
@@ -9,23 +10,7 @@ type Props = {
 };
 
 export const GameIcon = ({ type, setGame, setPage }: Props) => {
-  const getGameData = (): GameIconData => {
-    switch (type) {
-      case GameType.colors:
-        return {
-          title: "Colors",
-          icon: "images/colour.png",
-        };
-
-      case GameType.numbers:
-        return {
-          title: "Numbers",
-          icon: "images/numbers.png",
-        };
-    }
-  };
-
-  const gameData = getGameData();
+  const gameData = getGameInfo(type);
 
   const handleClick = () => {
     setPage(PageType.game);
@@ -34,7 +19,7 @@ export const GameIcon = ({ type, setGame, setPage }: Props) => {
 
   return (
     <div className="game-wrapper">
-      <img className="game-icon" src={gameData.icon} alt="" />
+      <GameImage type={type} />
       <span className="game-title">{gameData.title}</span>
 
       <div className="game-button" onClick={handleClick}>
