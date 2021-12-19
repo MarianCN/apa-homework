@@ -2,13 +2,18 @@ import { GameType } from "../../Components/Games/types";
 
 type GameNumbersData = {
   history: {
-    diffMinutes: number;
-    clickCounter: number;
+    time: number;
+    clicks: number;
   }[];
 };
+
 type GameColorsData = {
-  history: {}[];
+  history: {
+    rightAnswers: number;
+    wrongAnswers: number;
+  }[];
 };
+
 type GameSquaresData = {
   history: {}[];
 };
@@ -17,6 +22,5 @@ export type GamesData = {
   games: {
     [GameType.colors]?: GameColorsData;
     [GameType.numbers]?: GameNumbersData;
-    [GameType.squares]?: GameSquaresData;
   };
 };

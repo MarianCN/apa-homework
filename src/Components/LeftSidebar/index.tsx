@@ -25,13 +25,6 @@ export const LeftSidebar = ({ page, setPage }: Props) => {
           setPage(PageType.stats);
         }}
       />
-      <Button
-        title="DESPRE NOI"
-        isActive={page === "aboutus"}
-        onClick={() => {
-          setPage(PageType.aboutus);
-        }}
-      />
     </div>
   );
 };
