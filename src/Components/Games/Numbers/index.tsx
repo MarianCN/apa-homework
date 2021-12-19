@@ -1,13 +1,12 @@
-import { saveGameHistory } from "../../../utils/gameData/saveScore";
-
 import { MouseEventHandler } from "react";
 import { useState } from "react";
 import { GameType } from "../types";
 import { Timer } from "../../Timer";
 import { useEffect } from "react";
 import { getTime } from "../../../utils/timer";
+import { saveGameHistory } from "../../../utils/gamesStorage/saveScore";
 
-const totalNumbers = 5;
+const totalNumbers = 10;
 
 let clickCounter = 0;
 let startTime = 0;
@@ -79,8 +78,6 @@ const NumbersScreen = ({
         time: timePlayed,
         clicks: clickCounter - totalNumbers,
       };
-
-      console.log(dataToSave);
 
       saveGameHistory(GameType.numbers, dataToSave);
 
