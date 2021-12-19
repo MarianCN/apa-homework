@@ -152,6 +152,7 @@ body {
           }
         }
       }
+
       &-game {
         flex-grow: 1;
 
@@ -161,6 +162,8 @@ body {
           position: relative;
           display: flex;
           flex-direction: column;
+          align-items: center;
+          justify-content: center;
 
           h1 {
             text-align: center;
@@ -172,31 +175,31 @@ body {
             align-self: center;
           }
 
+          .game-stats {
+            border: 2px solid #b3b3b3;
+            border-radius: 10px;
+            padding: 20px;
+            background: white;
+
+            &-title {
+              font-size: 30px;
+              font-weight: 500;
+
+              margin-bottom: 10px;
+            }
+
+            &-row {
+              font-size: 20px;
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+
           &-numbers {
             align-items: center;
             justify-content: center;
 
             padding: 20px;
-
-            .game-stats {
-              border: 2px solid #b3b3b3;
-              border-radius: 10px;
-              padding: 20px;
-              background: white;
-
-              &-title {
-                font-size: 30px;
-                font-weight: 500;
-
-                margin-bottom: 10px;
-              }
-
-              &-row {
-                font-size: 20px;
-                display: flex;
-                justify-content: space-between;
-              }
-            }
 
             .numbers-container {
               position: relative;
@@ -246,21 +249,57 @@ body {
               transition-duration: 0.3s;
               transition-timing-function: ease;
               transition-property: top, left;
-
-              &:hover {
-                opacity: 1;
-                border: 2px solid gray;
-              }
             }
           }
           &-colors {
-          }
-          &-squares {
+            .colors-container {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-evenly;
+              position: relative;
+              height: 30%;
+              min-height: 110px;
+              width: 50%;
+              min-width: 200px;
+
+              border: 2px solid #b3b3b3;
+              background-color: white;
+              margin: 20px 0;
+
+              border-radius: 10px;
+
+              .colors-title {
+                text-align: center;
+                font-weight: 900;
+                font-size: 25px;
+              }
+
+              .colors-answers {
+                display: flex;
+                justify-content: space-evenly;
+
+                span {
+                  user-select: none;
+                  cursor: pointer;
+                  display: block;
+                  padding: 10px;
+                  border: 1px solid rgb(202, 202, 202);
+
+                  border-radius: 5px;
+
+                  font-weight: bold;
+
+                  transition: all 0.2s ease;
+                }
+              }
+            }
           }
         }
       }
+
       &-stats {
         flex: 1;
+
         .statistics {
           display: flex;
           justify-content: space-around;
@@ -268,9 +307,10 @@ body {
 
           width: 100%;
 
-          .game-block {
+          &-block {
             display: flex;
-            justify-content: right;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
 
             margin: 20px;
@@ -285,13 +325,24 @@ body {
               font-size: 25px;
               font-weight: 100;
               text-align: center;
-              margin-right: auto;
+            }
+
+            .history-blocks {
+              width: 40%;
             }
 
             .history-block {
               padding: 0 20px;
               display: flex;
+              justify-content: space-between;
               align-items: center;
+
+              margin: 2px;
+              padding: 2px;
+
+              &:not(:last-child) {
+                border-bottom: 1px solid rgb(187, 187, 187);
+              }
             }
           }
         }
@@ -308,6 +359,18 @@ body {
 
       &-button {
         font-size: 14px;
+      }
+    }
+
+    .statistics-block {
+      flex-direction: column;
+
+      > * {
+        margin-bottom: 20px;
+      }
+
+      .history-blocks {
+        width: 100% !important;
       }
     }
   }

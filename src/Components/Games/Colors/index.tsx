@@ -1,115 +1,134 @@
-import { MouseEventHandler, useEffect, useState } from "react";
-import { saveGameHistory } from "../../../utils/gameData/saveScore";
+import { useEffect, useState } from "react";
+import { saveGameHistory } from "../../../utils/gamesStorage/saveScore";
+import { getRandomFrom } from "../../../utils/number";
+import { getTime } from "../../../utils/timer";
+import { Timer } from "../../Timer";
 import { GameType } from "../types";
+import { colorsLevels, getRandomTwoColors } from "./utils";
 
-export const Colors = () => {
-  // TODO de facut random
-  const [colorsGameState, setColorsGameState] = useState({
-    step: 0,
-    rightAnswers: 0,
-    wrongAnswers: 0,
-    time: null,
-    questions: [
-      {
-        question: "Roșu",
-        answers: [
-          {
-            answer: "Verde",
-            color: "red",
-            isRight: 0,
-          },
-          {
-            answer: "Roșu",
-            color: "green",
-            isRight: 1,
-          },
-        ],
-      },
-      {
-        question: "Gablen",
-        answers: [
-          {
-            answer: "Galben",
-            color: "red",
-            isRight: 1,
-          },
-          {
-            answer: "Verde",
-            color: "yellow",
-            isRight: 0,
-          },
-        ],
-      },
-    ],
-  });
+let currentStep = 1;
+const totalSteps = 10;
+
+let rightAnswers = 0;
+let startTime = 0;
+let timePlayed = 0;
+
+const ColorsScreen = ({ setOngoing }: { setOngoing: (v: boolean) => void }) => {
+  const [currentLevel, setCurrentLevel] = useState(
+    getRandomTwoColors(colorsLevels)
+  );
 
   useEffect(() => {
-    console.log(colorsGameState.step === colorsGameState.questions.length)
-    if (colorsGameState.step === colorsGameState.questions.length) {
-      saveGameHistory(GameType.colors, {
-        rightAnswers: colorsGameState.rightAnswers,
-        wrongAnswers: colorsGameState.wrongAnswers,
-      });
-    }
-  });
+    startTime = Date.now();
+  }, []);
 
-  const answerClickHandler: MouseEventHandler<HTMLSpanElement> = (event) => {
-    let { rightAnswers, wrongAnswers } = colorsGameState;
-
-    const target = event.target as HTMLElement;
-
-    if (Number(target.getAttribute("data-is-right"))) {
-      ++rightAnswers;
+  const answerClickHandler = (isRight: boolean): void => {
+    if (isRight) {
+      rightAnswers = rightAnswers + 1;
     } else {
-      ++wrongAnswers;
+      const audio = new Audio("audio/wrong.mp3");
+      audio.play();
     }
 
-    if (colorsGameState.step !== colorsGameState.questions.length) {
-      setColorsGameState({
-        ...colorsGameState,
-        step: colorsGameState.step + 1,
+    const audio = new Audio("audio/click.mp3");
+    audio.play();
+
+    if (currentStep === totalSteps) {
+      timePlayed = Date.now() - startTime;
+
+      const dataToSave = {
+        time: timePlayed + (10 - rightAnswers) * 1000,
         rightAnswers,
-        wrongAnswers,
-      });
+      };
+
+      const audio = new Audio("audio/success.mp3");
+      audio.play();
+
+      saveGameHistory(GameType.colors, dataToSave);
+
+      setOngoing(false);
     }
+
+    currentStep++;
+    setCurrentLevel(getRandomTwoColors(colorsLevels));
   };
+
+  const currentLevelCorrect = getRandomFrom(1);
+
+  const correctColorData = colorsLevels[currentLevel[currentLevelCorrect] ?? 0];
+  const wrongColorData =
+    colorsLevels[currentLevel[currentLevelCorrect === 1 ? 0 : 1] ?? 0];
+
+  return (
+    <div className="colors-container">
+      <span
+        className="colors-title"
+        style={{
+          color: correctColorData?.color,
+          WebkitTextStroke: correctColorData?.id === 8 ? "black 1px" : "",
+        }}
+      >
+        {wrongColorData?.title ?? "-"}
+      </span>
+      <div className="colors-answers">
+        {currentLevel.map((item, index) => {
+          return (
+            <span
+              className="answer"
+              key={index}
+              onClick={() => answerClickHandler(item === correctColorData?.id)}
+            >
+              {colorsLevels[item]?.title}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const FinalMessage = () => {
+  const { mins, secs } = getTime(timePlayed / 1000);
+
+  return (
+    <div className="game-stats">
+      <div className="game-stats-title">Felicitari!</div>
+
+      <div className="game-stats-row">
+        <span>Timp</span>
+        <span>
+          <span>{`${mins < 10 ? "0" : ""}${mins}`}</span>
+          <span>:</span>
+          <span>{`${secs < 10 ? "0" : ""}${secs}`}</span>
+        </span>
+      </div>
+      <div className="game-stats-row">
+        <span>Greseli</span>
+        <span>{totalSteps - rightAnswers}</span>
+      </div>
+    </div>
+  );
+};
+
+export const Colors = () => {
+  const [ongoing, setOngoing] = useState(true);
+
+  useEffect(() => {
+    startTime = Date.now();
+    currentStep = 1;
+    rightAnswers = 0;
+  }, []);
 
   return (
     <div className="gameScreen gameScreen-colors">
-      <div className="mainBlock">
-        {colorsGameState.step !== colorsGameState.questions.length ? (
-          <div>
-            <h1>
-              {
-                // @ts-expect-error need to fix this
-                colorsGameState.questions[colorsGameState.step].question
-              }
-            </h1>
-            <div>
-              {
-                // @ts-expect-error need to fix this
-                colorsGameState.questions[colorsGameState.step].answers.map(
-                  (answer, index) => {
-                    return (
-                      <span
-                        className="answer"
-                        key={index}
-                        style={{ color: answer.color }}
-                        data-is-right={answer.isRight}
-                        onClick={answerClickHandler}
-                      >
-                        {answer.answer}
-                      </span>
-                    );
-                  }
-                )
-              }
-            </div>
-          </div>
-        ) : (
-          <div>Thank you</div>
-        )}
-      </div>
+      {ongoing ? (
+        <>
+          <Timer ongoing={ongoing} />
+          <ColorsScreen setOngoing={setOngoing} />
+        </>
+      ) : (
+        <FinalMessage />
+      )}
     </div>
   );
 };

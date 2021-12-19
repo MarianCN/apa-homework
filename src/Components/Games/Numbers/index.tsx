@@ -1,13 +1,12 @@
-import { saveGameHistory } from "../../../utils/gameData/saveScore";
-
 import { MouseEventHandler } from "react";
 import { useState } from "react";
 import { GameType } from "../types";
 import { Timer } from "../../Timer";
 import { useEffect } from "react";
 import { getTime } from "../../../utils/timer";
+import { saveGameHistory } from "../../../utils/gamesStorage/saveScore";
 
-const totalNumbers = 5;
+const totalNumbers = 10;
 
 let clickCounter = 0;
 let startTime = 0;
@@ -72,6 +71,9 @@ const NumbersScreen = ({
 
     ++clickCounter;
 
+    const audio = new Audio("audio/click.mp3");
+    audio.play();
+
     if (clickedValue === numbers[0] && numbers.length === 1) {
       timePlayed = Date.now() - startTime;
 
@@ -79,8 +81,8 @@ const NumbersScreen = ({
         time: timePlayed,
         clicks: clickCounter - totalNumbers,
       };
-
-      console.log(dataToSave);
+      const audio = new Audio("audio/success.mp3");
+      audio.play();
 
       saveGameHistory(GameType.numbers, dataToSave);
 
@@ -91,6 +93,9 @@ const NumbersScreen = ({
       setCurrentNumber(currentNumber + 1);
 
       setNumbers(numbers.filter((item) => item !== currentNumber));
+    } else {
+      const audio = new Audio("audio/wrong.mp3");
+      audio.play();
     }
   };
 
