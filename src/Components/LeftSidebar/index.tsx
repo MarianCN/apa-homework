@@ -18,6 +18,7 @@ export const LeftSidebar = ({ page, setPage }: Props) => {
           setPage(PageType.games);
         }}
       />
+
       <Button
         title="STATISTICI"
         isActive={page === "stats"}
